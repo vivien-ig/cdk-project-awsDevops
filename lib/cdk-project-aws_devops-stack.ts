@@ -161,7 +161,7 @@ export class CdkProjectAwsDevopsStack extends cdk.Stack {
     // 5. Private PostgreSQL RDS with generated credentials in Secrets Manager.
     const database = new rds.DatabaseInstance(this, 'ApplicationDatabase', {
       engine: rds.DatabaseInstanceEngine.postgres({
-        version: rds.PostgresEngineVersion.VER_16_4,
+         version: rds.PostgresEngineVersion.of('16.15', '16'),
       }),
       instanceType: new ec2.InstanceType('t3.micro'),
       vpc,
